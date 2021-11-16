@@ -1,0 +1,206 @@
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+body {
+  height: 100vh;
+  width: 100%;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+  background-image: url(./images/bg-spider-man.png);
+}
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1650px;
+  margin: 0 auto;
+  padding: 2.5em 1em ;
+}
+
+header .left ,
+header .right {
+  display: flex;
+  align-items: center; 
+}
+
+header  .left a:nth-child(1) {
+  color: white !important;
+}
+header a {
+  color: #adadad;
+  font-size: 2em;
+  display: flex;
+}
+header .left a ,
+header .right a{
+ margin-right: 80px;
+} 
+header .right .time {
+  color: white;
+  font-size: 2em;
+  font-weight: 100;
+} 
+.btn-shine, .ps5-link {
+  position: relative;
+}
+.btn-shine:before, .ps5-link:before {
+  content: "";
+  position: absolute;
+  left: -4px;
+  top: -4px;
+  right: -4px;
+  bottom: -4px;
+  border: 2px solid white;
+  border-radius: inherit;
+  transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
+  opacity: 0;
+  transform: scale(0.95);
+  will-change: opacity, transform;
+  background-image: linear-gradient(-45deg, transparent 30%, rgba(255, 255, 255, 0.4), transparent 70%);
+  background-size: 600%;
+  animation-duration: 7s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.btn-shine.active:before, .active.ps5-link:before, .btn-shine:focus:before, .ps5-link:focus:before, .btn-shine:hover:before, .ps5-link:hover:before {
+  opacity: 1;
+  transform: scale(1);
+  animation-name: animation-shine;
+}
+@keyframes animation-shine {
+  0% {
+    background-position: 100%;
+  }
+  30% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 0%;
+  }
+}
+
+.btn-shine.stretched-link, .stretched-link.ps5-link {
+  position: initial;
+}
+
+.bg-black {
+  background-color: black;
+}
+
+.gap-3 {
+  gap: 1rem;
+}
+
+
+.ps5-nav {
+  display: flex;
+  list-style: none;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+.ps5-nav:before {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.ps5-puller {
+  order: -1;
+  transition: margin-left 300ms ease-in-out;
+  will-change: margin-left;
+}
+
+.ps5-item:focus-within ~ .ps5-item .ps5-link:after {
+  transform: translateX(100px);
+}
+.ps5-item:focus-within:nth-child(1) ~ .ps5-puller {
+  margin-left: 0px;
+}
+.ps5-item:focus-within:nth-child(2) ~ .ps5-puller {
+  margin-left: -95px;
+}
+.ps5-item:focus-within:nth-child(3) ~ .ps5-puller {
+  margin-left: -190px;
+}
+
+.ps5-link {
+  display: block;
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center;
+  transform-origin: top center;
+  transition: width 300ms ease-in-out, height 300ms ease-in-out;
+  will-change: width, height;
+}
+.ps5-link:after {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: inherit;
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: opacity 300ms ease-in-out, transform 0ms 300ms ease-in-out;
+  will-change: opacity, transform;
+}
+.ps5-link:focus:after {
+  z-index: -2;
+  transition-duration: 300ms, 300ms;
+}
+.ps5-link:focus, .ps5-link:hover {
+  width: 160px;
+  height: 160px;
+}
+.ps5-link:focus:after, .ps5-link:hover:after {
+  transition-delay: 0ms, 0ms;
+  opacity: 1;
+  transform: translateX(0px) !important;
+}
+
+
+body {
+  padding: 0;
+  height: 100vh;
+  background:url(https://wallpapercave.com/wp/wp3221276.jpg);
+}
+
+a {
+  outline: none;
+  color: inherit;
+}
+
+p {
+  color: white;
+  background-color: black;
+  border-radius: 10px;
+  padding: 0.5rem;
+  font-weight: 300;
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  line-height: 1.5;
+}
+.ps5-nav:after {
+	content: '';
+	order: -1;
+}
+
+.ps5-item:focus-within ~ *:last-child,
+.ps5-item:focus-within ~ .ps5-item:last-child + *,
+.ps5-item:focus-within ~ :after:last-child,
+.ps5-item:focus-within ~ :after {
+	margin-left: -90px;
+}
